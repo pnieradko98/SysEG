@@ -1,6 +1,6 @@
 /*
 Created: 17.04.2020
-Modified: 08.09.2020
+Modified: 17.11.2020
 Model: PostgreSQL 9.0
 Database: PostgreSQL 9.0
 */
@@ -55,7 +55,7 @@ WITH (
   autovacuum_enabled=true)
 ;
 
-CREATE INDEX IX_Relationship41 ON dane_egzaminu (id_dane_organizacyjne)
+CREATE INDEX id = id_dane_organizacyjne2 ON dane_egzaminu (id_dane_organizacyjne)
 ;
 ALTER TABLE dane_egzaminu ADD CONSTRAINT PK_dane_egzaminu PRIMARY KEY (id)
 ;
@@ -73,7 +73,7 @@ WITH (
   autovacuum_enabled=true)
 ;
 
-CREATE INDEX IX_Relationship16 ON odpowiedzi (id_punkty)
+CREATE INDEX id = id_punkty ON odpowiedzi (id_punkty)
 ;
 ALTER TABLE odpowiedzi ADD CONSTRAINT PK_odpowiedzi PRIMARY KEY (id)
 ;
@@ -91,7 +91,7 @@ WITH (
   autovacuum_enabled=true)
 ;
 
-CREATE INDEX IX_Relationship51 ON zestawy_zadan (id_dane_egzaminu)
+CREATE INDEX id = id_dane_egzaminu2 ON zestawy_zadan (id_dane_egzaminu)
 ;
 ALTER TABLE zestawy_zadan ADD CONSTRAINT PK_zestawy_zadan PRIMARY KEY (id)
 ;
@@ -107,7 +107,7 @@ WITH (
   autovacuum_enabled=true)
 ;
 
-CREATE INDEX IX_Relationship18 ON punkty (id_wyniki)
+CREATE INDEX id = id_wyniki1 ON punkty (id_wyniki)
 ;
 ALTER TABLE punkty ADD CONSTRAINT PK_punkty PRIMARY KEY (id)
 ;
@@ -129,7 +129,7 @@ WITH (
   autovacuum_enabled=true)
 ;
 
-CREATE INDEX IX_Relationship66 ON wyniki (id_zestawy_zadan)
+CREATE INDEX id = id_zestawy_zadan3 ON wyniki (id_zestawy_zadan)
 ;
 ALTER TABLE wyniki ADD CONSTRAINT PK_wyniki PRIMARY KEY (id)
 ;
@@ -151,11 +151,11 @@ WITH (
   autovacuum_enabled=true)
 ;
 
-CREATE INDEX IX_Relationship12 ON protokol (id_student)
+CREATE INDEX id = id_student2 ON protokol (id_student)
 ;
-CREATE INDEX IX_Relationship30 ON protokol (id_dane_egzaminu)
+CREATE INDEX id = id_dane_egzaminu ON protokol (id_dane_egzaminu)
 ;
-CREATE INDEX IX_Relationship48 ON protokol (id_wyniki)
+CREATE INDEX id = id_wyniki2 ON protokol (id_wyniki)
 ;
 ALTER TABLE protokol ADD CONSTRAINT PK_protokol PRIMARY KEY (id)
 ;
@@ -174,7 +174,7 @@ WITH (
   autovacuum_enabled=true)
 ;
 
-CREATE INDEX IX_Relationship33 ON pytania (id_zadania)
+CREATE INDEX id = id_zadania ON pytania (id_zadania)
 ;
 ALTER TABLE pytania ADD CONSTRAINT PK_pytania PRIMARY KEY (id)
 ;
@@ -193,7 +193,7 @@ WITH (
   autovacuum_enabled=true)
 ;
 
-CREATE INDEX IX_Relationship26 ON zadania (id_podkategoria)
+CREATE INDEX id = id_podkategoria ON zadania (id_podkategoria)
 ;
 ALTER TABLE zadania ADD CONSTRAINT PK_zadania PRIMARY KEY (id)
 ;
@@ -211,7 +211,7 @@ WITH (
   autovacuum_enabled=true)
 ;
 
-CREATE INDEX IX_Relationship27 ON podkategoria (id_kategoria)
+CREATE INDEX id = id_kategoria ON podkategoria (id_kategoria)
 ;
 ALTER TABLE podkategoria ADD CONSTRAINT PK_podkategoria PRIMARY KEY (id)
 ;
@@ -229,7 +229,7 @@ WITH (
   autovacuum_enabled=true)
 ;
 
-CREATE INDEX IX_Relationship43 ON kategoria (id_przedmiot)
+CREATE INDEX id = id_przedmiot ON kategoria (id_przedmiot)
 ;
 ALTER TABLE kategoria ADD CONSTRAINT PK_kategoria PRIMARY KEY (id)
 ;
@@ -263,7 +263,7 @@ WITH (
   autovacuum_enabled=true)
 ;
 
-CREATE INDEX IX_Relationship62 ON student (id_dane_organizacyjne)
+CREATE INDEX id = id_dane_organizacyjne1 ON student (id_dane_organizacyjne)
 ;
 ALTER TABLE student ADD CONSTRAINT PK_student PRIMARY KEY (id)
 ;
@@ -300,7 +300,7 @@ WITH (
   autovacuum_enabled=true)
 ;
 
-CREATE INDEX IX_Relationship63 ON numery_zadan (id_zestawy_zadan)
+CREATE INDEX id = id_zestawy_zadan2 ON numery_zadan (id_zestawy_zadan)
 ;
 ALTER TABLE numery_zadan ADD CONSTRAINT PK_numery_zadan PRIMARY KEY (id)
 ;
@@ -318,7 +318,7 @@ WITH (
   autovacuum_enabled=true)
 ;
 
-CREATE INDEX IX_Relationship53 ON numery_odpowiedzi (id_numery_zadan)
+CREATE INDEX id = id_numey_zadan ON numery_odpowiedzi (id_numery_zadan)
 ;
 ALTER TABLE numery_odpowiedzi ADD CONSTRAINT PK_numery_odpowiedzi PRIMARY KEY (id)
 ;
@@ -370,71 +370,71 @@ WITH (
   autovacuum_enabled=true)
 ;
 
-CREATE INDEX IX_Relationship64 ON student_zestaw (id_student)
+CREATE INDEX id = id_student ON student_zestaw (id_student)
 ;
-CREATE INDEX IX_Relationship65 ON student_zestaw (id_zestawy_zadan)
+CREATE INDEX id = id_zestawy_zadan ON student_zestaw (id_zestawy_zadan)
 ;
 ALTER TABLE student_zestaw ADD CONSTRAINT PK_student_zestaw PRIMARY KEY (id)
 ;
 
 -- Create foreign keys (relationships) section ------------------------------------------------- 
 
-ALTER TABLE protokol ADD CONSTRAINT Relationship48 FOREIGN KEY (id_wyniki) REFERENCES wyniki (id) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE protokol ADD CONSTRAINT id = id_wyniki FOREIGN KEY (id_wyniki) REFERENCES wyniki (id) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
 
 
-ALTER TABLE kategoria ADD CONSTRAINT Relationship43 FOREIGN KEY (id_przedmiot) REFERENCES przedmiot (id) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE kategoria ADD CONSTRAINT id = id_przedmiot FOREIGN KEY (id_przedmiot) REFERENCES przedmiot (id) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
 
 
-ALTER TABLE dane_egzaminu ADD CONSTRAINT Relationship41 FOREIGN KEY (id_dane_organizacyjne) REFERENCES dane_organizacyjne (id) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE dane_egzaminu ADD CONSTRAINT id = id_dane_egzaminu FOREIGN KEY (id_dane_organizacyjne) REFERENCES dane_organizacyjne (id) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
 
 
-ALTER TABLE pytania ADD CONSTRAINT Relationship33 FOREIGN KEY (id_zadania) REFERENCES zadania (id) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE pytania ADD CONSTRAINT id = id_zadania FOREIGN KEY (id_zadania) REFERENCES zadania (id) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
 
 
-ALTER TABLE protokol ADD CONSTRAINT Relationship30 FOREIGN KEY (id_dane_egzaminu) REFERENCES dane_egzaminu (id) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE protokol ADD CONSTRAINT id = id_dane_egzaminu FOREIGN KEY (id_dane_egzaminu) REFERENCES dane_egzaminu (id) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
 
 
-ALTER TABLE podkategoria ADD CONSTRAINT Relationship27 FOREIGN KEY (id_kategoria) REFERENCES kategoria (id) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE podkategoria ADD CONSTRAINT id = id_kategoria FOREIGN KEY (id_kategoria) REFERENCES kategoria (id) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
 
 
-ALTER TABLE zadania ADD CONSTRAINT Relationship26 FOREIGN KEY (id_podkategoria) REFERENCES podkategoria (id) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE zadania ADD CONSTRAINT id = id_podkategoria FOREIGN KEY (id_podkategoria) REFERENCES podkategoria (id) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
 
 
-ALTER TABLE punkty ADD CONSTRAINT Relationship18 FOREIGN KEY (id_wyniki) REFERENCES wyniki (id) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE punkty ADD CONSTRAINT id = id_wyniki FOREIGN KEY (id_wyniki) REFERENCES wyniki (id) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
 
 
-ALTER TABLE odpowiedzi ADD CONSTRAINT Relationship16 FOREIGN KEY (id_punkty) REFERENCES punkty (id) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE odpowiedzi ADD CONSTRAINT id = id_punkty FOREIGN KEY (id_punkty) REFERENCES punkty (id) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
 
 
-ALTER TABLE protokol ADD CONSTRAINT Relationship12 FOREIGN KEY (id_student) REFERENCES student (id) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE protokol ADD CONSTRAINT id = id_student FOREIGN KEY (id_student) REFERENCES student (id) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
 
 
-ALTER TABLE zestawy_zadan ADD CONSTRAINT Relationship51 FOREIGN KEY (id_dane_egzaminu) REFERENCES dane_egzaminu (id) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE zestawy_zadan ADD CONSTRAINT id = id_dane_egzaminu FOREIGN KEY (id_dane_egzaminu) REFERENCES dane_egzaminu (id) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
 
 
-ALTER TABLE numery_odpowiedzi ADD CONSTRAINT Relationship53 FOREIGN KEY (id_numery_zadan) REFERENCES numery_zadan (id) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE numery_odpowiedzi ADD CONSTRAINT id = id_numery_zadan FOREIGN KEY (id_numery_zadan) REFERENCES numery_zadan (id) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
 
@@ -454,30 +454,25 @@ ALTER TABLE zestawy_zadan_odpowiedzi ADD CONSTRAINT Relationship61 FOREIGN KEY (
 
 
 
-ALTER TABLE student ADD CONSTRAINT Relationship62 FOREIGN KEY (id_dane_organizacyjne) REFERENCES dane_organizacyjne (id) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE student ADD CONSTRAINT id = id_dane_organizacyjne FOREIGN KEY (id_dane_organizacyjne) REFERENCES dane_organizacyjne (id) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
 
 
-ALTER TABLE numery_zadan ADD CONSTRAINT Relationship63 FOREIGN KEY (id_zestawy_zadan) REFERENCES zestawy_zadan (id) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE numery_zadan ADD CONSTRAINT id = id_zestawy_zadan FOREIGN KEY (id_zestawy_zadan) REFERENCES zestawy_zadan (id) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
 
 
-ALTER TABLE student_zestaw ADD CONSTRAINT Relationship64 FOREIGN KEY (id_student) REFERENCES student (id) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE student_zestaw ADD CONSTRAINT id = id_student FOREIGN KEY (id_student) REFERENCES student (id) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
 
 
-ALTER TABLE student_zestaw ADD CONSTRAINT Relationship65 FOREIGN KEY (id_zestawy_zadan) REFERENCES zestawy_zadan (id) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE student_zestaw ADD CONSTRAINT id = id_zestawy_zadan FOREIGN KEY (id_zestawy_zadan) REFERENCES zestawy_zadan (id) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
 
 
-ALTER TABLE wyniki ADD CONSTRAINT Relationship66 FOREIGN KEY (id_zestawy_zadan) REFERENCES zestawy_zadan (id) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE wyniki ADD CONSTRAINT id = id_zestawy_zadan FOREIGN KEY (id_zestawy_zadan) REFERENCES zestawy_zadan (id) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
-
-
-
-
-
